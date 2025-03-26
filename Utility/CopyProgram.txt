@@ -1,0 +1,13 @@
+Connecting to the device
+ssh root@10.155.74.15
+
+Command to get program from AM62
+scp root@10.155.74.15:gpio_test/test/Program.cs .
+
+Command to copy program to AM62
+scp Program.cs root@10.155.74.15:gpio_test/test/
+
+Run the program
+./../dotnet/dotnet run
+Installing serial
+./../dotnet/dotnet add package System.IO.Ports
