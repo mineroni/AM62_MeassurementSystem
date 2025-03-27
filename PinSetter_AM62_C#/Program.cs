@@ -26,17 +26,17 @@ class Program
         gpioController.OpenPin(gpioPinOutput, PinMode.Output);
         gpioController.Write(gpioPinOutput, PinValue.High);
 	    gpioController.OpenPin(gpioPinInput, PinMode.Input);
-        gpioController.RegisterCallbackForPinValueChangedEvent(gpioPinInput, PinEventTypes.Falling, PinChanged);
+        gpioController.RegisterCallbackForPinValueChangedEvent(gpioPinInput, PinEventTypes.Rising, PinChanged);
 
-        // Waiting for triggers. If the pin is low, reset it to high
+        // Waiting for triggers. If the pin is high, reset it to low
         while (true)
         {
-            if  (!isHigh)
+            if  (isHigh)
             {
                 Thread.Sleep(10);
-                gpioController.Write(gpioPinOutput, PinValue.High);
-                Console.WriteLine("Pin low level detected, resetting it to high!");
-                isHigh = true;
+                gpioController.Write(gpioPinOutput, PinValue.Low);
+                Console.WriteLine("Pin high level detected, resetting it to low!");
+                isHigh = false;
             }
             Thread.Sleep(10);
         }
@@ -59,8 +59,8 @@ class Program
     private static void setPinLow()
     {
         // Setting the pin low
-        gpioController.Write(gpioPinOutput, PinValue.Low);
+        gpioController.Write(gpioPinOutput, PinValue.High);
         // Indicating that the pin is low for the main loop
-        isHigh = false;
+        isHigh = true;
     }
 }
