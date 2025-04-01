@@ -10,7 +10,7 @@ SERIAL_BAUDRATE = 115200
 ser = None
 
 # Setting up meassure
-sample_count = 1000
+sample_count = 1000000
 save_location = "dataGpio.csv"
 save_location2 = "dataSerial.csv"
 meassure_pin = 4
