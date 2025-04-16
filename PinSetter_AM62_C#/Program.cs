@@ -14,7 +14,7 @@ class Program
     private static int gpioPinInput = 1;
     // GPIO output pin
     private static int gpioPinOutput = 2;
-    // Flag to indicate if the pin is set to low
+    // Flag to indicate if the pin is set to high
     private static bool isHigh = false;
     static void Main()
     {
@@ -26,7 +26,7 @@ class Program
         gpioController.OpenPin(gpioPinOutput, PinMode.Output);
         gpioController.Write(gpioPinOutput, PinValue.High);
 	    gpioController.OpenPin(gpioPinInput, PinMode.Input);
-        gpioController.RegisterCallbackForPinValueChangedEvent(gpioPinInput, PinEventTypes.Rising, PinChanged);
+        gpioController.RegisterCallbackForPinValueChangedEvent(gpioPinInput, PinEventTypes.Falling, PinChanged);
 
         // Waiting for triggers. If the pin is high, reset it to low
         while (true)
@@ -47,20 +47,20 @@ class Program
         int readedByte = serialPort.ReadByte();
         if(readedByte != 0x01)
             return;
-        // Set the pin to low as fast as possible
-        setPinLow();
+        // Set the pin to high as fast as possible
+        setPinHigh();
     }
 
     private static void PinChanged(object sender, PinValueChangedEventArgs e)
     {
-        // Set the pin to low as fast as possible
-        setPinLow();
+        // Set the pin to high as fast as possible
+        setPinHigh();
     }
-    private static void setPinLow()
+    private static void setPinHigh()
     {
-        // Setting the pin low
+        // Setting the pin high
         gpioController.Write(gpioPinOutput, PinValue.High);
-        // Indicating that the pin is low for the main loop
+        // Indicating that the pin is high for the main loop
         isHigh = true;
     }
 }

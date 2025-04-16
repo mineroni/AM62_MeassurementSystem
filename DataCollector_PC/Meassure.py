@@ -56,11 +56,26 @@ def sendMeassureCommandSerial(command):
         data.append(6)                      # Length
         data.append(meassure_pin)           # Pin number
         data.append(0x03)                   # Mode: Output
+        
+        data.append(0x00)                   # Create reserved space for the checksum
+        data[-1] = calculateChecksum(data)  # CHECKSUM
+        ser.write(bytes(data))              # Convert list to byte array and send
 
-    elif command == 0x02:   # Set pin high
+        # Wait and read the response
+        time.sleep(0.250)
+        resp = ser.read_all()
+
+        # If the command failed return failed
+        if len(resp) < 4 or resp[0] != 0x55 or calculateChecksum(resp) != resp[-1] or resp[1] != 0x00:
+            return False
+        
+        # Resetting the pin to default state
+        data = [0x55, 0x02, 6, meassure_pin, 0x01]
+
+    elif command == 0x02:   # Set pin low
         data.append(6)                      # Length
         data.append(meassure_pin)           # Pin number
-        data.append(1)                      # Level: High
+        data.append(0)                      # Level: Low
 
         data.append(0x00)                   # Create reserved space for the checksum
         data[-1] = calculateChecksum(data)  # CHECKSUM
@@ -75,7 +90,7 @@ def sendMeassureCommandSerial(command):
             return False
         
         # Resetting the pin to default state
-        data = [0x55, 0x02, 6, meassure_pin, 0x00]
+        data = [0x55, 0x02, 6, meassure_pin, 0x01]
 
     elif command == 0x03:   # Send serial 0x01 
         data.append(5)                      # Length
@@ -109,7 +124,7 @@ def setSingleTriggerForFFR(s):
     s.sendall(b":TRIGger:SINGle:EDGE:LEVel 1v\n")
 
 def getFFR_time(s):
-    s.sendall(b":MEASUrement:FRR? CH1,CH2\n")  # Send command as bytes
+    s.sendall(b":MEASUrement:FFR? CH1,CH2\n")  # Send command as bytes
     data_str = s.recv(100).decode().strip()
 
     match = re.search(r"([\d.]+)ms", data_str)  # Find a number followed by "ms"
@@ -169,5 +184,5 @@ if not sendMeassureCommandSerial(0x01):
     exit()
 
 # Run meassurements
-#run_meassurement(sample_count, save_location, setSingleTriggerForFFR, getFFR_time, 0x02)
-run_meassurement(sample_count, save_location2, setSingleTriggerForFFR, getFFR_time, 0x03)
+run_meassurement(sample_count, save_location, setSingleTriggerForFFR, getFFR_time, 0x02)
+#run_meassurement(sample_count, save_location2, setSingleTriggerForFFR, getFFR_time, 0x03)
