@@ -23,10 +23,14 @@ def waitForTrigger(s, meassuirementCommand):
 
         # Check if the scope is running
         s.sendall(b":RUNning?\n")
-        data_str = s.recv(100).decode().strip()
+        run_status = s.recv(100).decode().strip()
+
+        # Check if Single trigger is set
+        s.sendall(b":TRIGger:STATus?\n")
+        trigger_status = s.recv(100).decode().strip()
 
         # Break if scope is running
-        if data_str.startswith("RUN"):
+        if run_status.startswith("RUN") and trigger_status.startswith("READy"):
             break
 
     # Send command to trigger the scope and read the response data
@@ -165,5 +169,5 @@ if not sendMeassureCommandSerial(0x01):
     exit()
 
 # Run meassurements
-run_meassurement(sample_count, save_location, setSingleTriggerForFFR, getFFR_time, 0x02)
-#run_meassurement(sample_count, save_location2, setSingleTriggerForFFR, getFFR_time, 0x03)
+#run_meassurement(sample_count, save_location, setSingleTriggerForFFR, getFFR_time, 0x02)
+run_meassurement(sample_count, save_location2, setSingleTriggerForFFR, getFFR_time, 0x03)
