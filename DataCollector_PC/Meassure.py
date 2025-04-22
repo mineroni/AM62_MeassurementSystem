@@ -120,7 +120,7 @@ def setSingleTriggerForFFR(s):
     s.sendall(b":TRIGger:SINGle:MODE EDGE\n")
     s.sendall(b":TRIGger:SINGle:EDGE:SOURce CH1\n")
     s.sendall(b":TRIGger:SINGle:EDGE:COUPling DC\n")
-    s.sendall(b":TRIGger:SINGle:EDGE:SLOPe RISE\n")
+    s.sendall(b":TRIGger:SINGle:EDGE:SLOPe FALL\n")
     s.sendall(b":TRIGger:SINGle:EDGE:LEVel 1v\n")
 
 def getFFR_time(s):
