@@ -13,11 +13,16 @@
 // Flags for state
 volatile int running = 1;
 
-// Flag to indicate if the pin is set to high
-volatile int isHigh = 0;
-
 // Output pin global variable
 struct gpiod_line* out_line;
+
+/*void setPin(const char* cause)
+{
+    gpiod_line_request_set_value(out_line, 1, 0); // Set the pin to low
+    printf("%s\n", cause);
+    sleep(1);
+    gpiod_line_request_set_value(out_line, 1, 1); // Set the pin to high
+}*/
 
 struct gpiod_line_request* initPin(char* chipName, unsigned int pinNumber, enum gpiod_line_direction direction)
 {
@@ -91,6 +96,15 @@ int main()
 
     struct gpiod_line_request* inputPin = initPin(CHIP_NAME, IN_PIN, GPIOD_LINE_DIRECTION_INPUT);
     struct gpiod_line_request* outputPin = initPin(CHIP_NAME, OUT_PIN, GPIOD_LINE_DIRECTION_OUTPUT);
+    if (inputPin)
+    {
+        printf("Pin %d initialized successfully\n", IN_PIN);
+    }
+    if (outputPin)
+    {
+        printf("Pin %d initialized successfully\n", OUT_PIN);
+    }
+    
 
     if (!inputPin || !outputPin)
     {
@@ -100,15 +114,12 @@ int main()
 
     while (running)
     {
-        if  (isHigh)
-        {
-            usleep(10*1000);
-            gpiod_line_request_set_value(outputPin, OUT_PIN, 0);
-            printf("Pin high level detected on pin %d, resetting it to low!", outputPin);
-            isHigh = 0;
-        }
-        printf("test\n");
-        usleep(10*1000);
+        gpiod_line_request_set_value(outputPin, OUT_PIN, 0);
+        printf("GPIO %d set to low\n", OUT_PIN);
+        sleep(1);
+        gpiod_line_request_set_value(outputPin, OUT_PIN, 1);
+        printf("GPIO %d set to high\n", OUT_PIN);
+        sleep(1);
     }
 
     gpiod_line_request_release(inputPin);
