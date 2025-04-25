@@ -6,13 +6,9 @@
 // GPIO chip to define the pins on
 #define CHIP_NAME "/dev/gpiochip1"
 // GPIO input pin
-#define IN_PIN      1
+#define IN_PIN      (1)
 // GPIO output pin
-#define OUT_PIN     2
-// Serial port device
-#define UART_PORT  "/dev/verdin-uart1"
-// Serial baud rate
-#define BAUDRATE  B9600
+#define OUT_PIN     (2)
 
 // Flags for state
 volatile int running = 1;
@@ -22,12 +18,6 @@ void handleSigint(int signum)
 {
     (void)signum;
     running = 0;
-}
-
-// This is the callback that gets called when a message is received
-void on_serial_message(const char *message) 
-{
-    printf("Received message: %s\n", message);
 }
 
 // Function to initialize a GPIO pin
@@ -93,68 +83,13 @@ struct gpiod_line_request* initPin(char* chipName, unsigned int pinNumber, enum 
     return request;
 }
 
-// Function to set up serial communication
-int setupSerial(const char* device)
-{
-    int fd = open(device, O_RDWR | O_NOCTTY | O_NONBLOCK);
-    if (fd < 0)
-    {
-        perror("Failed to open serial port");
-        return -1;
-    }
-
-    struct termios tty;
-    memset(&tty, 0, sizeof(tty));
-
-    if (tcgetattr(fd, &tty) != 0)
-    {
-        perror("tcgetattr failed");
-        close(fd);
-        return -1;
-    }
-
-    cfsetospeed(&tty, BAUDRATE);
-    cfsetispeed(&tty, BAUDRATE);
-
-    tty.c_cflag = (tty.c_cflag & ~CSIZE) | CS8;     // 8-bit chars
-    tty.c_iflag &= ~IGNBRK;                         // disable break processing
-    tty.c_lflag = 0;                                // no signaling chars, no echo
-    tty.c_oflag = 0;                                // no remapping, no delays
-    tty.c_cc[VMIN] = 0;                             // read doesn't block
-    tty.c_cc[VTIME] = 1;                            // 0.1 seconds read timeout
-
-    tty.c_iflag &= ~(IXON | IXOFF | IXANY);         // shut off xon/xoff ctrl
-    tty.c_cflag |= (CLOCAL | CREAD);                // ignore modem controls, enable reading
-    tty.c_cflag &= ~(PARENB | PARODD);              // no parity
-    tty.c_cflag &= ~CSTOPB;                         // 1 stop bit
-    tty.c_cflag &= ~CRTSCTS;                        // no hardware flow control
-
-    if (tcsetattr(fd, TCSANOW, &tty) != 0)
-    {
-        perror("tcsetattr failed");
-        close(fd);
-        return -1;
-    }
-
-    return fd;
-}
-
 int main()
 {
     signal(SIGINT, handleSigint); // Handle Ctrl+C
 
-    // Init serial port
-    int serialFd = setupSerial(UART_PORT);
-    if (serialFd < 0)
-    {
-        perror("Failed to connect to serial port");
-        return 1;
-    }
-
     struct gpiod_edge_event_buffer* events = gpiod_edge_event_buffer_new(1);
     if (!events) 
     {
-        close(serialFd);
         perror("Failed to create edge event buffer");
         return 1;
     }
@@ -165,7 +100,6 @@ int main()
     if (!inputPin || !outputPin)
     {
         perror("Failed to initialize GPIO pins\n");
-        close(serialFd);
         gpiod_edge_event_buffer_free(events);
         gpiod_line_request_release(inputPin);
         gpiod_line_request_release(outputPin);
@@ -201,7 +135,6 @@ int main()
         }
     }
 
-    close(serialFd);
     gpiod_edge_event_buffer_free(events);
     gpiod_line_request_release(inputPin);
     gpiod_line_request_release(outputPin);
