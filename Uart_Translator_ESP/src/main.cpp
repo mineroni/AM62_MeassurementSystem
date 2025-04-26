@@ -23,8 +23,8 @@ uint8_t freeGPIOPins[] = {2, 4, 5, 12, 13, 14, 15, 18, 19, 21, 22, 23, 25, 26, 2
 
 // Response structure:
 // 0. Start byte: 0x55
-// 2. Response Data: 0x00 -> Success, 0x01 -> Checksum Error, 0x02 -> Invalid Command
-// 1. Response Length: 0x04
+// 1. Response Data: 0x00 -> Success, 0x01 -> Checksum Error, 0x02 -> Invalid Command
+// 2. Response Length: 0x04
 // 3. Checksum: 1 byte
 
 // Command types:
