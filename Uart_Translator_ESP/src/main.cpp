@@ -1,12 +1,16 @@
 #include <Arduino.h>
 
+// Size of command buffer
 #define BUFF_LEN (64)
 
+// Serial2 (output serial) pins
 #define TX2_PIN 17   // Serial2 TX
 #define RX2_PIN 16   // Serial2 RX
 
+// Pin to show if command processing in progress
 #define LED_PIN 2
 
+// Free GPIO pins to use by the commands
 uint8_t freeGPIOPins[] = {2, 4, 5, 12, 13, 14, 15, 18, 19, 21, 22, 23, 25, 26, 27, 32, 33, 34};
 
 // Command structure:
@@ -23,10 +27,12 @@ uint8_t freeGPIOPins[] = {2, 4, 5, 12, 13, 14, 15, 18, 19, 21, 22, 23, 25, 26, 2
 // 1. Response Length: 0x04
 // 3. Checksum: 1 byte
 
+// Command types:
 #define COMMAND_GPIO_MODE (0x01)
 #define COMMAND_GPIO_WRITE (0x02)
 #define COMMAND_SERIAL_WRITE (0x03)
 
+// Response codes:
 #define RESPONSE_SUCCESS (0x00)
 #define RESPONSE_CHECKSUM_ERROR (0x01)
 #define RESPONSE_INVALID_COMMAND (0x02)
@@ -35,21 +41,26 @@ uint8_t freeGPIOPins[] = {2, 4, 5, 12, 13, 14, 15, 18, 19, 21, 22, 23, 25, 26, 2
 #define RESPONSE_INVALID_PIN_MODE (0x05)
 #define RESPONSE_INVALID_LEVEL (0x06)
 
-void processCommand();
 
-void setup() 
+// Command buffer
+byte buffer[BUFF_LEN];
+// Command buffer length
+int cmdLen = 0;
+
+/// @brief Check if pin is free to use by commands
+/// @param pin number of the pin to check
+/// @return true if pin is free, false otherwise
+bool pinFree(byte pin)
 {
-    Serial.begin(115200);
-    Serial.setTimeout(200);
-    Serial2.begin(9600, SERIAL_8N1, RX2_PIN, TX2_PIN);
-
-    pinMode(LED_PIN, OUTPUT);
-
-    // Initalize all unused GPIO pins as INPUT
     for(int i = 0; i < sizeof(freeGPIOPins); ++i)
-        pinMode(freeGPIOPins[i], INPUT);
+        if(freeGPIOPins[i] == pin)
+            return true;
+    return false;
 }
 
+/// @brief Function to calculate checksum for the serial commands
+/// @param data Command buffer to calculate the checksum on
+/// @return Checksum value
 byte createChecksum(byte data[]) 
 {
     byte checksum = 0;
@@ -60,6 +71,8 @@ byte createChecksum(byte data[])
     return checksum;
 }
 
+/// @brief Function to send response back to the PC
+/// @param resp Response code to answer
 void sendResponse(byte resp)
 {
     byte respBuff[] = {0x55, resp, 0x04, 0x00};
@@ -67,12 +80,30 @@ void sendResponse(byte resp)
     Serial.write(respBuff, 4);
 }
 
-byte buffer[BUFF_LEN];
-int cmdLen = 0;
+/// @brief Function to precess incoming commands
+void processCommand();
+
+/// @brief Function to setup the ESP32 before starting the main loop
+void setup() 
+{
+    // Initializing Serial lines
+    Serial.begin(115200);
+    Serial.setTimeout(200);
+    Serial2.begin(9600, SERIAL_8N1, RX2_PIN, TX2_PIN);
+
+    // Initializing command processing pin
+    pinMode(LED_PIN, OUTPUT);
+
+    // Initalize all unused GPIO pins as INPUT
+    for(int i = 0; i < sizeof(freeGPIOPins)/sizeof(freeGPIOPins[0]); ++i)
+        pinMode(freeGPIOPins[i], INPUT);
+}
+
+/// @brief Main loop of the program
 void loop() 
 {
     // Read avaible commands to the buffer
-    cmdLen += Serial.readBytes(buffer, BUFF_LEN - cmdLen);
+    cmdLen += Serial.readBytes(buffer + cmdLen, BUFF_LEN - cmdLen);
     
     // Find and process commands in the serial buffer
     while (cmdLen > 2)
@@ -93,11 +124,12 @@ void loop()
             if (buffer[buffer[2]-1] == createChecksum(buffer))
             {
                 // Process the command
+                digitalWrite(LED_PIN, HIGH);
                 processCommand();
+                digitalWrite(LED_PIN, LOW);
             }
-            else
+            else // Invalid checksum
             {
-                // Invalid checksum
                 sendResponse(RESPONSE_CHECKSUM_ERROR);
             }
             
@@ -108,14 +140,7 @@ void loop()
     }
 }
 
-bool pinFree(byte pin)
-{
-    for(int i = 0; i < sizeof(freeGPIOPins); ++i)
-        if(freeGPIOPins[i] == pin)
-            return true;
-    return false;
-}
-
+/// @brief Function to precess incoming commands
 void processCommand() 
 {
     switch (buffer[1]) // Command Type
