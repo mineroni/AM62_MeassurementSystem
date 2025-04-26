@@ -88,7 +88,7 @@ void setup()
 {
     // Initializing Serial lines
     Serial.begin(115200);
-    Serial.setTimeout(200);
+    Serial.setTimeout(50);
     Serial2.begin(9600, SERIAL_8N1, RX2_PIN, TX2_PIN);
 
     // Initializing command processing pin
