@@ -16,8 +16,8 @@ uint8_t freeGPIOPins[] = {2, 4, 5, 12, 13, 14, 15, 18, 19, 21, 22, 23, 25, 26, 2
 // Command structure:
 
 // 0. Start byte: 0x55
-// 1. Command Type: 1 byte
-// 2. Data Length: 1 byte (0-64)
+// 1. Command type: 1 byte
+// 2. Message length: 1 byte (4-64)
 // 3-62. Data: 0-60 bytes
 // dataLen+3. Checksum: 1 byte
 
