@@ -1,0 +1,3 @@
+./../dotnet/dotnet run                          #Debug
+
+./../dotnet/dotnet run --configuration Release  #Release

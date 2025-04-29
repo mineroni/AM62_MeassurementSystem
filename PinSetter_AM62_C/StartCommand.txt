@@ -1,1 +1,0 @@
-gcc -Wall -O3 -o pinSetter pinSetter.c -lgpiod
