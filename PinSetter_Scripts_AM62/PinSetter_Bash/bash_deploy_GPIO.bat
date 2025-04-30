@@ -5,8 +5,8 @@ REM IP address of the target device
 set ipAddr=10.155.74.12
 
 REM Copy the pinSetter.sh script to the target device
-scp pinSetter.sh root@%ipAddr%:.
+scp pinSetter.sh root@%ipAddr%:bashTest/
 
 REM Modify the script and set permissions and run it on the target device
-ssh root@%ipAddr% -t "sed -i 's/\r$//' pinSetter.sh; chmod +x pinSetter.sh; ./pinSetter.sh"
+ssh root@%ipAddr% -t "cd bashTest && sed -i 's/\r$//' pinSetter.sh && chmod +x pinSetter.sh && ./pinSetter.sh"
 
