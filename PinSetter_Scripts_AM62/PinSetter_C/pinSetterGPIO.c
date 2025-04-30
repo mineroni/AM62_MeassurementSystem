@@ -103,6 +103,8 @@ int main()
         gpiod_line_request_release(outputPin);
         return 1;
     }    
+    
+    printf("Waiting for falling edge on GPIO pin %d.\n", IN_PIN);
 
     while (running)
     {
