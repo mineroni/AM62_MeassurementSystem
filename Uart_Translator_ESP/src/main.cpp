@@ -11,7 +11,7 @@
 #define LED_PIN 2
 
 // Free GPIO pins to use by the commands
-uint8_t freeGPIOPins[] = {2, 4, 5, 12, 13, 14, 15, 18, 19, 21, 22, 23, 25, 26, 27, 32, 33, 34};
+uint8_t freeGPIOPins[] = {4, 5, 12, 13, 14, 15, 18, 19, 21, 22, 23, 25, 26, 27, 32, 33, 34};
 
 // Command structure:
 
