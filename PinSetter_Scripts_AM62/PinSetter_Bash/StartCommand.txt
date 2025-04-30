@@ -1,0 +1,8 @@
+# Copy script to device
+scp pinSetter.sh root@10.155.74.12:.
+
+# remove '\r' characters:
+sed -i 's/\r$//' pinSetter.sh
+
+# Start script
+sh pinSetter.sh
