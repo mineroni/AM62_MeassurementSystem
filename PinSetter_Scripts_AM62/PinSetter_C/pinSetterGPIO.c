@@ -10,8 +10,13 @@
 // GPIO output pin
 #define OUT_PIN     (2)
 
-// Flags for state
+// Ctrl+C signal handler
 volatile int running = 1;
+void handleSigint(int signum)
+{
+    (void)signum;
+    running = 0;
+}
 
 // Function to initialize a GPIO pin
 struct gpiod_line_request* initPin(char* chipName, unsigned int pinNumber, enum gpiod_line_direction direction, enum gpiod_line_edge edgePolarity)
@@ -74,13 +79,6 @@ struct gpiod_line_request* initPin(char* chipName, unsigned int pinNumber, enum 
     }
 
     return request;
-}
-
-// Ctrl+C signal handler
-void handleSigint(int signum)
-{
-    (void)signum;
-    running = 0;
 }
 
 int main()
