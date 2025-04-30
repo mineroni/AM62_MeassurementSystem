@@ -108,7 +108,7 @@ int main()
 
     while (running)
     {
-        int ret = gpiod_line_request_wait_edge_events(inputPin, -1); // 1 second timeout
+        int ret = gpiod_line_request_wait_edge_events(inputPin, -1);
         if (ret < 0) 
         {
             perror("Error waiting for event");
