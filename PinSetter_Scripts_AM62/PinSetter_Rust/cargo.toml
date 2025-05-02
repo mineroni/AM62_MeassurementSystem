@@ -1,0 +1,3 @@
+[dependencies]
+gpiod = "0.2"
+serialport = "4.2.0"
