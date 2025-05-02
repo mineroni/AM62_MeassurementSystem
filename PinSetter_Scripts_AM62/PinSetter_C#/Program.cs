@@ -24,9 +24,15 @@ class Program
 
         // Setting up the GPIO controller
         gpioController.OpenPin(gpioPinOutput, PinMode.Output);
-        gpioController.Write(gpioPinOutput, PinValue.High);
+        gpioController.Write(gpioPinOutput, PinValue.Low);
 	    gpioController.OpenPin(gpioPinInput, PinMode.Input);
         gpioController.RegisterCallbackForPinValueChangedEvent(gpioPinInput, PinEventTypes.Falling, PinChanged);
+        gpioController.RegisterCallbackForPinValueChangedEvent(gpioPinInput, PinEventTypes.Rising, PinChanged);
+        Console.WriteLine("Waiting for triggers...");
+
+        // Main loop
+
+        Console.WriteLine("Waiting for input...");
 
         // Waiting for triggers. If the pin is high, reset it to low
         while (true)
