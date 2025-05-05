@@ -1,96 +1,63 @@
-use gpiod::{Chip, EdgeKind, LineRequestFlags, Request};
+use gpiod::{Chip, Options, EdgeDetect};
 use serialport::SerialPort;
 use std::io::Read;
-use std::sync::{
-    atomic::{AtomicBool, Ordering},
-    Arc,
-};
-use std::thread;
-use std::time::Duration;
+use std::time::{Duration, Instant};
+use std::thread::sleep;
 
-fn main() {
-    // Set up GPIO chip (e.g. /dev/gpiochip1, index may vary on your board)
-    let mut chip = Chip::new("/dev/gpiochip1").expect("Failed to open gpiochip");
+fn main() -> std::io::Result<()> {
+    let port_name = "/dev/verdin-uart1";
+    let baud_rate = 9600;
 
-    // Define GPIO lines
-    let input_line = 1;
-    let output_line_offset = 2;
+    // Open serial port
+    let mut serial = serialport::new(port_name, baud_rate)
+        .timeout(Duration::from_millis(10)) // non-blocking
+        .open()
+        .expect("Failed to open serial port");
 
-    // Request input line with edge detection
-    let input_line = chip
-        .get_line(input_line_offset)
-        .expect("Failed to get input line");
-    let input_request = input_line
-        .request(
-            "gpio_input",
-            LineRequestFlags::INPUT | LineRequestFlags::EDGE_FALLING,
-            0,
-        )
-        .expect("Failed to request input line");
+    // Open GPIO chip
+    let chip = Chip::new("/dev/gpiochip1")?;
 
-    // Request output line
-    let output_line = chip
-        .get_line(output_line_offset)
-        .expect("Failed to get output line");
-    let output_request = output_line
-        .request("gpio_output", LineRequestFlags::OUTPUT, 0)
-        .expect("Failed to request output line");
+    // Configure pin 1 as input with falling edge detection
+    let input_opts = Options::input([1])
+        .consumer("gpio_pin1")
+        .edge(EdgeDetect::Falling);
+    let mut inputs = chip.request_lines(input_opts)?;
 
-    let is_high = Arc::new(AtomicBool::new(false));
-    let is_high_gpio = Arc::clone(&is_high);
+    // Configure pin 2 as output, initially low
+    let output_opts = Options::output([2])
+        .values([false])
+        .consumer("gpio_pin2");
+    let outputs = chip.request_lines(output_opts)?;
 
-    // Thread for GPIO edge detection
-    let output_req_clone = output_request.clone();
-    thread::spawn(move || {
-        loop {
-            if let Ok(event) = input_request.read_edge_event() {
-                println!(
-                    "GPIO event: {:?} at {:?}",
-                    event.edge_kind(),
-                    event.timestamp()
-                );
-                set_pin_high(&output_req_clone, &is_high_gpio);
-            }
-        }
-    });
+    let mut serial_buf = [0u8; 1];
+    println!("Monitoring serial and GPIO pin 1 for trigger...");
 
-    // Thread for serial communication
-    let is_high_serial = Arc::clone(&is_high);
-    let output_req_clone2 = output_request.clone();
-    thread::spawn(move || {
-        let mut port = serialport::new("/dev/verdin-uart1", 9600)
-            .timeout(Duration::from_millis(10))
-            .open()
-            .expect("Failed to open serial port");
-
-        let mut buffer = [0u8; 1];
-
-        loop {
-            if port.read_exact(&mut buffer).is_ok() {
-                if buffer[0] == 0x01 {
-                    println!("Serial trigger received!");
-                    set_pin_high(&output_req_clone2, &is_high_serial);
-                }
-            }
-        }
-    });
-
-    // Main loop
-    println!("Waiting for input...");
     loop {
-        if is_high.load(Ordering::Relaxed) {
-            thread::sleep(Duration::from_millis(10));
-            output_request
-                .set_value(0)
-                .expect("Failed to reset output pin");
-            println!("Pin high level detected, resetting it to low!");
-            is_high.store(false, Ordering::Relaxed);
+        // ==== Check Serial ====
+        if let Ok(n) = serial.read(&mut serial_buf) {
+            if n > 0 && serial_buf[0] == 0x01 {
+                println!("Serial 0x01 received → trigger!");
+                trigger_pulse(&outputs)?;
+                continue; // prevent double trigger if edge is also pending
+            }
         }
-        thread::sleep(Duration::from_millis(10));
+
+        // ==== Check GPIO Edge ====
+        if let Ok(event) = inputs.read_event() {
+            if event.line == 0 {
+                println!("Falling edge detected on GPIO pin 1 → trigger!");
+                trigger_pulse(&outputs)?;
+            }
+        }
+
+        // Optional: small sleep to avoid busy-wait loop
+        sleep(Duration::from_millis(1));
     }
 }
 
-fn set_pin_high(req: &Request, flag: &AtomicBool) {
-    req.set_value(1).expect("Failed to set pin high");
-    flag.store(true, Ordering::Relaxed);
+fn trigger_pulse(outputs: &gpiod::Lines) -> std::io::Result<()> {
+    outputs.set_values([true])?;
+    sleep(Duration::from_millis(10));
+    outputs.set_values([false])?;
+    Ok(())
 }
