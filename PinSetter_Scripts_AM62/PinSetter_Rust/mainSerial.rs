@@ -4,23 +4,21 @@ use std::io::Read;
 use std::thread::sleep;
 
 fn main() -> std::io::Result<()> {
+    // Open the GPIO chip
+    let chip = Chip::new("/dev/gpiochip1")?;
+    // Configure pin 2 as output and set to low
+    let opts = Options::output([2])
+        .values([false])
+        .consumer("gpio_output");
+    let outputs = chip.request_lines(opts)?;
+
     // Open serial port (adjust as needed)
     let port_name = "/dev/verdin-uart1";
     let baud_rate = 9_600;
-
     let mut serial = serialport::new(port_name, baud_rate)
         .timeout(Duration::from_millis(100))
         .open()
         .expect("Failed to open serial port");
-
-    // Open the GPIO chip
-    let chip = Chip::new("/dev/gpiochip1")?;
-
-    // Configure pin 2 as output and set to low
-    let opts = Options::output([2])
-        .values([false])
-        .consumer("gpio_trigger");
-    let outputs = chip.request_lines(opts)?;
 
     let mut buf = [0u8; 1];
     println!("Waiting for message 0x01 on {}.", port_name);

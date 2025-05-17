@@ -3,19 +3,19 @@ use std::thread::sleep;
 use std::time::Duration;
 
 fn main() -> std::io::Result<()> {
-    // Open the GPIO chip (gpiochip1)
+    // Open the GPIO chip
     let chip = Chip::new("/dev/gpiochip1")?;
 
     // Configure pin 1 as input and pin 2 as output
     let opts = Options::input([1])
-        .consumer("gpio_pin1")
+        .consumer("gpio_input")
         .edge(EdgeDetect::Falling); // Detect falling edge on pin 1
 
     let mut inputs = chip.request_lines(opts)?;
 
     let opts = Options::output([2])
         .values([false]) // Set initial state of pin 2 to low
-        .consumer("gpio_pin2");
+        .consumer("gpio_output");
 
     let outputs = chip.request_lines(opts)?;
 
