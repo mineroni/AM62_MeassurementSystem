@@ -185,4 +185,4 @@ if not sendMeassureCommandSerial(0x01):
 
 # Run meassurements
 run_meassurement(sample_count, save_location, setSingleTriggerForFFR, getFFR_time, 0x02)
-#run_meassurement(sample_count, save_location2, setSingleTriggerForFFR, getFFR_time, 0x03)
+run_meassurement(sample_count, save_location2, setSingleTriggerForFFR, getFFR_time, 0x03)
