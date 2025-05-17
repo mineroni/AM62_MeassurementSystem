@@ -1,0 +1,338 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 OPR/118.0.0.0" version="27.0.3">
+  <diagram name="1 oldal" id="4hhxj-KqS35gcDUP3ths">
+    <mxGraphModel dx="1888" dy="625" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-1" target="eI-UZoKSs-bo-g8k3H4y-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-1" value="Soros port megnyitása" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-2" target="eI-UZoKSs-bo-g8k3H4y-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-2" value="Üzenet küldése az ESP-nek a kimeneti pin inicializálására" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-3" target="eI-UZoKSs-bo-g8k3H4y-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-18" value="Igen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-17">
+          <mxGeometry x="0.0611" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-3" value="Létezik már&lt;br&gt;a kimeneti file?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="32" y="220" width="126" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-4" target="eI-UZoKSs-bo-g8k3H4y-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-4" value="Kimeneti file törlése" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-5" target="eI-UZoKSs-bo-g8k3H4y-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-5" value="Stream socket megnyitása a &lt;br&gt;scope-pal való kommunikációhoz" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="238" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-9" target="eI-UZoKSs-bo-g8k3H4y-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-77" value="Igen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-76">
+          <mxGeometry x="-0.755" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-9" value="Elértük a kívánt mintaszámot?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="32" y="450" width="126" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-10" target="eI-UZoKSs-bo-g8k3H4y-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-10" value="Kimeneti file megnyitása hozzáfűzés módban" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="238" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-11" target="eI-UZoKSs-bo-g8k3H4y-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-11" value="Scope inicializálása" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="238" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-12" target="eI-UZoKSs-bo-g8k3H4y-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-82" value="Nem" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-43">
+          <mxGeometry x="-0.4254" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-81" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-12" target="eI-UZoKSs-bo-g8k3H4y-75">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200" y="390" />
+              <mxPoint x="200" y="590" />
+              <mxPoint x="90" y="590" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-83" value="Igen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-81">
+          <mxGeometry x="-0.7894" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-12" value="Elértük a kívánt mintaszámot?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="235" y="330" width="126" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-13" value="Scope &quot;single&quot;&lt;br&gt;módba állítása" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="238" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-19" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-3" target="eI-UZoKSs-bo-g8k3H4y-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="402" y="320" as="sourcePoint" />
+            <mxPoint x="452" y="270" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="2" y="260" />
+              <mxPoint x="2" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-20" value="Nem" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-19">
+          <mxGeometry x="-0.8736" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-22" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-9" target="eI-UZoKSs-bo-g8k3H4y-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="402" y="320" as="sourcePoint" />
+            <mxPoint x="452" y="270" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="182" y="490" />
+              <mxPoint x="180" y="50" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-25" value="Nem" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-22">
+          <mxGeometry x="-0.9601" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-26" target="eI-UZoKSs-bo-g8k3H4y-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="474" y="100" />
+              <mxPoint x="442" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-33" value="Igen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-30">
+          <mxGeometry x="-0.5038" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-26" target="eI-UZoKSs-bo-g8k3H4y-29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="537" y="100" />
+              <mxPoint x="572" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-34" value="Nem" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-32">
+          <mxGeometry x="-0.5504" y="-2" relative="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-26" value="GPIO mérést végzünk?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="442" y="10" width="126" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-27" target="eI-UZoKSs-bo-g8k3H4y-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-27" value="Mérésre használt GPIO láb magasra állítása soros porti üzenettel az ESP-nek" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="382" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-28" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-13" target="eI-UZoKSs-bo-g8k3H4y-26">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="402" y="320" as="sourcePoint" />
+            <mxPoint x="452" y="270" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="372" y="490" />
+              <mxPoint x="372" y="50" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-29" target="eI-UZoKSs-bo-g8k3H4y-44">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="535" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="572" y="310" />
+              <mxPoint x="537" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-29" value="0x01 soros porti üzenetként való elküldése" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="512" y="175" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-35" target="eI-UZoKSs-bo-g8k3H4y-44">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="475" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-35" value="Mérésre használt GPIO láb alacsonyra állítása&amp;nbsp;soros porti üzenettel az ESP-nek" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="382" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-44" target="eI-UZoKSs-bo-g8k3H4y-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-46" value="Nem" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-45">
+          <mxGeometry x="-0.4697" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-44" target="eI-UZoKSs-bo-g8k3H4y-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-50" value="Igen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-49">
+          <mxGeometry x="-0.8762" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-44" value="Sikeresen&lt;br&gt;elküldtük&lt;br&gt;az üzenetet?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="442" y="330" width="126" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-47" target="eI-UZoKSs-bo-g8k3H4y-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-52" value="Nem" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-51">
+          <mxGeometry x="0.2791" y="-1" relative="1" as="geometry">
+            <mxPoint x="12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-47" value="Eltelt 10 mp?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="379" y="450" width="126" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-48" target="eI-UZoKSs-bo-g8k3H4y-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-56" value="Nem" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-55">
+          <mxGeometry x="-0.0273" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-48" target="eI-UZoKSs-bo-g8k3H4y-60">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="50" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="650" y="490" />
+              <mxPoint x="650" y="90" />
+              <mxPoint x="670" y="90" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-85" value="Igen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-59">
+          <mxGeometry x="-0.9654" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-48" value="Sikerült&lt;br&gt;megfogni&lt;br&gt;a lefutóélt?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="509" y="450" width="126" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.789;entryY=0.752;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-47" target="eI-UZoKSs-bo-g8k3H4y-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="411" y="430" />
+              <mxPoint x="334" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-54" value="Igen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-53">
+          <mxGeometry x="-0.7962" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-60" target="eI-UZoKSs-bo-g8k3H4y-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-60" value="Első 1-es csatornán lefutó, 2-es csatornán felfutóél között eltelt idő lekérdezése a scope-tól" style="rounded=0;whiteSpace=wrap;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="670" y="65" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-70" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-61" target="eI-UZoKSs-bo-g8k3H4y-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-61" value="Válaszüzenetben kapott érték dekódolása" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="175" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-62" target="eI-UZoKSs-bo-g8k3H4y-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-66" value="Igen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-65">
+          <mxGeometry x="-0.4296" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-62" target="eI-UZoKSs-bo-g8k3H4y-64">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="813" y="315" />
+              <mxPoint x="813" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-69" value="Nem" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-68">
+          <mxGeometry x="-0.974" y="4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-62" value="Sikerült&lt;br&gt;értelmezhető értéket begyűjteni&lt;br&gt;a mérésre?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="667" y="275" width="126" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-63" target="eI-UZoKSs-bo-g8k3H4y-64">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-63" value="Mérés eredményének mentése" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="405" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.372;entryY=0.889;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-64" target="eI-UZoKSs-bo-g8k3H4y-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="610" />
+              <mxPoint x="220" y="401" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-84" value="Nem" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-73">
+          <mxGeometry x="-0.8986" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="eI-UZoKSs-bo-g8k3H4y-64" target="eI-UZoKSs-bo-g8k3H4y-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="650" />
+              <mxPoint x="140" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-80" value="Igen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="eI-UZoKSs-bo-g8k3H4y-79">
+          <mxGeometry x="-0.7666" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-64" value="Kaptunk kivételt a mérés során?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="158" y="610" width="126" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="eI-UZoKSs-bo-g8k3H4y-75" value="Mérés leállítása" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
