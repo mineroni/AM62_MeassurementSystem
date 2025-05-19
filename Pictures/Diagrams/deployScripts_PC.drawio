@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 OPR/118.0.0.0" version="27.0.6">
+  <diagram name="1 oldal" id="wRItnalU--66Aq-eVohQ">
+    <mxGraphModel dx="1167" dy="688" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Qk9nrqAQVQu8MsbKRmha-1" target="Qk9nrqAQVQu8MsbKRmha-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-1" value="Forrásfájlok célgépre való másolása" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="20" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-2" value="Projekt mappájának tallózása" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Qk9nrqAQVQu8MsbKRmha-3" target="Qk9nrqAQVQu8MsbKRmha-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-12" value="Igen" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Qk9nrqAQVQu8MsbKRmha-8" vertex="1" connectable="0">
+          <mxGeometry x="-0.2722" y="3" relative="1" as="geometry">
+            <mxPoint x="-3" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="Qk9nrqAQVQu8MsbKRmha-3" target="Qk9nrqAQVQu8MsbKRmha-5" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="260" />
+              <mxPoint x="300" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-14" value="Nem" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Qk9nrqAQVQu8MsbKRmha-13" vertex="1" connectable="0">
+          <mxGeometry x="-0.9057" y="3" relative="1" as="geometry">
+            <mxPoint y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-3" value="Van szükség fordításra?" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="339" y="220" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Qk9nrqAQVQu8MsbKRmha-4" target="Qk9nrqAQVQu8MsbKRmha-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-4" value="Forrásfájlok fordítása" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Qk9nrqAQVQu8MsbKRmha-5" target="Qk9nrqAQVQu8MsbKRmha-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-5" value="Futtatási jogosultság hozzárendelése a futtatandó állományhoz" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Qk9nrqAQVQu8MsbKRmha-6" value="Kód futtatása" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="354" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
